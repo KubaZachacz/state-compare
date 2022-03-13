@@ -4,16 +4,16 @@ import { PlayerIdx } from "types";
 import PlayerStats from "components/PlayerStats";
 
 import { useAppSelector } from "./../hooks";
-import { selectPlayers } from "../store/playersSlice";
+import { selectPlayerStats } from "../store/playersSlice";
 
 interface PlayerStatsWithStateProps {
   id: PlayerIdx;
 }
 
 const PlayerStatsWithState = ({ id }: PlayerStatsWithStateProps) => {
-  const players = useAppSelector(selectPlayers);
+  const stats = useAppSelector(selectPlayerStats(id));
 
-  return <PlayerStats stats={players[id]?.stats} />;
+  return <PlayerStats stats={stats} />;
 };
 
 export default PlayerStatsWithState;

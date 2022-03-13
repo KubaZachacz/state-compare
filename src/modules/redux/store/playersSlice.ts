@@ -68,5 +68,7 @@ export const playersSlice = createSlice({
 export const { updateStats } = playersSlice.actions;
 
 export const selectPlayers = (state: RootState) => state.players.players;
+export const selectPlayerData = (idx: PlayerIdx) => (state: RootState) => state.players.players[idx]?.data;
+export const selectPlayerStats = (idx: PlayerIdx) => (state: RootState) => state.players.players[idx]?.stats;
 
 export default playersSlice.reducer;

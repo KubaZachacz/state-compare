@@ -3,7 +3,10 @@ import { PlayerIdx } from "types";
 
 import PlayerInfo from "components/PlayerInfo";
 
-import { getPlayer, selectPlayers } from "../store/playersSlice";
+import {
+  getPlayer,
+  selectPlayerData,
+} from "../store/playersSlice";
 import { useAppSelector, useAppDispatch } from "./../hooks";
 
 interface PlayerInfoWithStateProps {
@@ -12,11 +15,11 @@ interface PlayerInfoWithStateProps {
 
 const PlayerInfoWithState = ({ id }: PlayerInfoWithStateProps) => {
   const dispatch = useAppDispatch();
-  const players = useAppSelector(selectPlayers);
+  const data = useAppSelector(selectPlayerData(id));
 
   return (
     <PlayerInfo
-      data={players[id]?.data}
+      data={data}
       getPlayer={() => dispatch(getPlayer(id))}
     />
   );
