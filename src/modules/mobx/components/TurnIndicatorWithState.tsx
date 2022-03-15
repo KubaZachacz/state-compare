@@ -1,10 +1,12 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 
-import { boardStore } from "modules/mobx/store/boardStore";
 import TurnIndicator from "components/TurnIndicator";
+import { useStores } from "modules/mobx/store";
 
 const TurnIndicatorWithState = observer(() => {
+  const { boardStore } = useStores();
+
   return (
     <TurnIndicator
       currentPlayer={boardStore.currentPlayer}

@@ -3,9 +3,11 @@ import { observer } from "mobx-react-lite";
 import { toJS } from "mobx";
 
 import Board from "components/Board";
-import { boardStore } from "modules/mobx/store/boardStore";
+import { useStores } from "modules/mobx/store";
 
 const BoardWithState = observer(() => {
+  const { boardStore } = useStores();
+
   return (
     <Board
       size={boardStore.size}
